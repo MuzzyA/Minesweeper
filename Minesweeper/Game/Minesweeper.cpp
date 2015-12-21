@@ -116,9 +116,11 @@ void onBlockClick( CButton* button )
 	vector< vector< CBlock* > >& blks = inst->getBlocks();
 	CBlock* b = (CBlock*)button;
 
+	// Do nothing if the block is flagged or already clicked
 	if( b->Flagged() || b->Clicked() || inst->_dead )
 		return;
 
+	// If it's the first click, we want to make sure there's no bomb underneath
 	if( inst->_firstClick )
 	{
 		inst->_firstClick = false;
@@ -163,16 +165,17 @@ void onBlockClick( CButton* button )
 		return;
 	}
 	
+	// Block has been clicked
 	b->setClicked( true );
 
 	int x = b->getCol();
 	int y = b->getRow();
 
-	// See how many bombs are surrounding this block
 	unsigned bombCount = 0;
 	vector< CBlock* > surroundingBlocks;
 	CBlock* temp = nullptr;
 
+	// See how many bombs are surrounding this block
 	if( ( temp = BlockAt( blks,x-1,y-1 )) && ( !temp->Clicked() || temp->Flagged() ) ) surroundingBlocks.push_back( temp );
 	if( ( temp = BlockAt( blks,x,y-1 )  ) && ( !temp->Clicked() || temp->Flagged() ) ) surroundingBlocks.push_back( temp );
 	if( ( temp = BlockAt( blks,x+1,y-1 )) && ( !temp->Clicked() || temp->Flagged() ) ) surroundingBlocks.push_back( temp );
@@ -186,12 +189,13 @@ void onBlockClick( CButton* button )
 		if( surroundingBlocks[i]->HasBomb() )
 			++bombCount;
 	
-
+	// If there are no bombs surrounding the block, we need to expand the 'clicked' blocks
 	if( bombCount == 0 )
 	{
 		// Disable the button
 		b->Enabled( false );
 
+		// Go through all of the surrounding blocks, 'clicking' them
 		for( unsigned i = 0;i < surroundingBlocks.size();++i )
 			onBlockClick( surroundingBlocks[i] );
 
@@ -199,6 +203,8 @@ void onBlockClick( CButton* button )
 
 	}
 
+	// Definitely can do this better
+	// Set the textures based on the number of bombs around the block
 	switch( bombCount )
 	{
 	case 1:
@@ -429,11 +435,13 @@ void CMinesweeper::GameStateInit( CGameState* pState )
 	int startDown	= d3d->LoadTexture( "Assets/Textures/StartButtonDown.png" );
 	int startDead	= d3d->LoadTexture( "Assets/Textures/StartButtonDead.png" );
 
+	// Reset Game Button
 	CButton* startButton = (CButton*)wm.NewWindow( WT_Button,32,32,start,src,startHover,src );
 	startButton->setOnClick( onStartButtonClick );
 	startButton->setMouseDownTexture( startDown );
 	startButton->setMouseDownSrc( src );
 	startButton->setPos( d3d->getBackBufferWidth()/2 - startButton->getWidth()/2, -1 );
+	startButton->Enabled(true);
 	set.Add( startButton,RO_4 );
 
 	inst->_start = startButton;

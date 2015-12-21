@@ -29,6 +29,7 @@ public:
 	
 	int numBombs;
 
+	// Texture ID's for blocks
 	int _normal;
 	int _hover;
 	int _disabled;
@@ -42,9 +43,12 @@ public:
 	int _block6;
 	int _block7;
 	int _block8;
+
+	// New Game/Game Over
 	bool _firstClick;
 	bool _dead;
 
+	// Button to reset the game
 	UI::CButton* _start;
 	int _startNorm;
 	int _startDead;
