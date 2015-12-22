@@ -11,7 +11,7 @@ class CInput;
 
 namespace UI
 {
-	enum WindowType { WT_Window,WT_Button,WT_Count };
+	enum WindowType { WT_Window,WT_Button,WT_Text,WT_Count };
 
 	class CWindowManager
 	{

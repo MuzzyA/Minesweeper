@@ -24,6 +24,8 @@ namespace UI
 		RECT	_normalSrc;		// Texture Src
 		RECT	_hoverSrc;		//
 
+		D3DXCOLOR _color;		// Color of the window.  Only used if there is no texture
+
 		Func	_onMouseEnter;
 		Func	_onMouseLeave;
 
@@ -46,14 +48,14 @@ namespace UI
 		// Call once per frame
 		// mouse - the current state of the mouse
 		virtual void Update( const Mouse& mouse );
-		virtual void Render();
+		virtual void Render() const;
 
 		void AddChild( CWindowComponent* p ) { _children.push_back( p ); p->_parent = this; }
 
 		bool isVisible() const { return _visible; }
-		void Visible( bool v ) { _visible = v; }
+		void Visible(bool v);
 		bool isEnabled() const { return _enabled; }
-		void Enabled( bool v ) { _enabled = v; }
+		void Enabled(bool v);
 		void setNormalSrc( const RECT& v ) { _normalSrc = v; }
 		void setHoverSrc( const RECT& v ) { _hoverSrc = v; }
 		void setOnMouseEnter( Func v ) { _onMouseEnter = v; }

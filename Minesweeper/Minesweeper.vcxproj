@@ -93,7 +93,9 @@
     <ClCompile Include="Graphics\RenderObject.cpp" />
     <ClCompile Include="Graphics\RenderObject2D.cpp" />
     <ClCompile Include="Tools\Math.cpp" />
+    <ClCompile Include="Tools\Util.cpp" />
     <ClCompile Include="UI\Button.cpp" />
+    <ClCompile Include="UI\TextComponent.cpp" />
     <ClCompile Include="UI\Window.cpp" />
     <ClCompile Include="UI\WindowManager.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -112,9 +114,11 @@
     <ClInclude Include="Graphics\RenderObject.h" />
     <ClInclude Include="Graphics\RenderObject2D.h" />
     <ClInclude Include="Tools\Math.h" />
+    <ClInclude Include="Tools\Util.h" />
     <ClInclude Include="Tools\Vector3.h" />
     <ClInclude Include="Tools\VertexHeaders.h" />
     <ClInclude Include="UI\Button.h" />
+    <ClInclude Include="UI\TextComponent.h" />
     <ClInclude Include="UI\Window.h" />
     <ClInclude Include="UI\WindowManager.h" />
     <ClInclude Include="Window.h" />

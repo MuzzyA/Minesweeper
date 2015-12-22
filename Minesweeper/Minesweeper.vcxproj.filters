@@ -69,6 +69,12 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Util.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\TextComponent.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Minesweeper.h">
@@ -127,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Util.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\TextComponent.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

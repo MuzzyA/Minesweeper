@@ -19,6 +19,10 @@ namespace UI
 		_onMouseLeave = nullptr;
 
 		_parent = nullptr;
+
+		_color = D3DXCOLOR(1, 1, 1, 1);
+
+		_visible = true;
 	}
 
 	CWindowComponent::~CWindowComponent()
@@ -26,12 +30,28 @@ namespace UI
 
 	}
 
-	void CWindowComponent::Render()
+	void CWindowComponent::Render() const
 	{
 		if( !_visible )
 			return;
 
 		CRenderObject2D::Render();
+	}
+
+	void CWindowComponent::Visible(bool v)
+	{
+		_visible = v;
+
+		for (unsigned i = 0; i < _children.size(); ++i)
+			_children[i]->Visible(v);
+	}
+
+	void CWindowComponent::Enabled(bool v)
+	{
+		_enabled = v;
+
+		for (unsigned i = 0; i < _children.size(); ++i)
+			_children[i]->Enabled(v);
 	}
 
 	void CWindowComponent::Update( const Mouse& mouse )

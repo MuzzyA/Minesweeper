@@ -1,5 +1,6 @@
 #include "WindowManager.h"
 #include "Button.h"
+#include "TextComponent.h"
 #include "../API Wrappers/Input.h" 
 
 
@@ -18,6 +19,9 @@ namespace UI
 			break;
 		case WT_Button:
 			comp = new CButton();
+			break;
+		case WT_Text:
+			comp = new CTextComponent();
 			break;
 		}
 

@@ -28,7 +28,7 @@ public:
 	int getTextureID() const { return _texID; }
 	void setTextureID( int v ) { _texID = v; }
 	void setPos( float x,float y ) { _pos.x = x; _pos.y = y; }
-	const D3DXVECTOR2& getPos( const D3DXVECTOR2& v ) const { return _pos; }
+	const D3DXVECTOR2& getPos() const { return _pos; }
 	void setCenter( const D3DXVECTOR2& v ) { _center = v; }
 	const D3DXVECTOR2& getCenter() const { return _center; }
 	void setScaleX( float v ) { _scaleX = v; }
