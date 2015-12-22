@@ -21,6 +21,7 @@ class CMinesweeper : public Engine::CGame
 	int	_maxBombs;
 	int _numBlocks;
 
+	// Components for the Warning Window and Bomb Count Window
 	UI::CWindowComponent* _pWarningMessageWindow;
 	UI::CWindowComponent* _pBombCountWindow;
 	UI::CTextComponent*	  _pBombTextLabel;
@@ -88,8 +89,10 @@ public:
 	// Displays popup window for setting the amount of bombs
 	void DisplayBombCountPopup(bool bDisplay);
 
+	// Updates the text for the bomb count
 	void UpdateBombCountLabel();
 
+	// Accessors and Mutators
 	void setNumBlocks(int val) { _numBlocks = val; }
 	int getNumBlocks() const { return _numBlocks; }
 	void setMaxBombs(int val) { _maxBombs = val; }

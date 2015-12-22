@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <vld.h>
 #include <time.h>
 #include "Window.h"
 #include "Engine/Engine.h"

@@ -784,5 +784,6 @@ void CMinesweeper::UpdateBombCountLabel()
 
 bool CMinesweeper::CheckForFreeBlocks()
 {
+	// if( _clickedBlocks.size() < totalBlocks - _maxBombs )
 	return _clickedBlocks.size() < ( _blocks.size() * _blocks[0].size() - _maxBombs );
 }
